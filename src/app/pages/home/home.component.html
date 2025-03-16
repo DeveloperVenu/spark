@@ -1,0 +1,78 @@
+<!-- banner start -->
+<div class="contain-fluid">
+    <div id="carouselExample" class="carousel carousel-dark slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active" 
+            data-bs-interval="10000"
+             *ngFor="let b of bannerResults;let i=index" [ngClass]="{active:i===1}">
+                <img src="https://www.themoviedb.org/t/p/original/{{b.backdrop_path}}" class="d-block w-100" [routerLink]="['/movie',b.id]">
+                <div class="carousel-caption d-none d-md-block">
+                 <h2>{{b.original_title}}</h2>
+                 <p>{{b.overview}}</p>
+
+                </div>
+            </div>
+           
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </button>
+    </div>
+</div>
+<!-- banner end-->
+<div class="contain  p-4">
+    <!-- Latest Movies -->
+    <div class="row ">
+
+        <h2 class="text-white up col-lg-2 " play>Now Playing </h2>
+        
+        <div class="rowposter play mt-3 p-2">
+            <ng-container *ngFor="let l of latestResults">
+                    <img src="https://www.themoviedb.org/t/p/original/{{l.poster_path}}" class="rowimg largeposter" [routerLink]="['/movie',l.id]">
+            </ng-container>
+        </div>
+    </div>
+</div>
+<div class="contain p-4">
+    <!-- upcoming Movies -->
+    <div class="row">
+        <h2 class="text-white up col-lg-2 ">Upcoming </h2>
+ 
+        <div class="rowposter play mt-3 p-2">
+            <ng-container *ngFor="let u of   upcomingResults">
+                <img src="https://www.themoviedb.org/t/p/original/{{u.poster_path}}" class="rowimg largeposter"
+                    [routerLink]="['/movie',u.id]">
+            </ng-container>
+        </div>
+    </div>
+</div>
+<div class="contain p-4">
+    <!-- action Movies -->
+    <div class="row ">
+        <h2 class="text-white up col-lg-2 ">Action Movies</h2>
+
+        <div class="rowposter mt-3 p-2 play">
+            <ng-container *ngFor="let ag of     actiongenre">
+                <img src="https://www.themoviedb.org/t/p/original/{{ag.poster_path}}" class="rowimg largeposter"
+                    [routerLink]="['/movie',ag.id]">
+            </ng-container>
+        </div>
+    </div>
+</div>
+<div class="contain  p-4">
+    <!-- adventure Movies -->
+    <div class="row">
+        <h2 class="text-white up col-lg-2 ">Adventure Movies</h2>
+
+        <div class="rowposter play mt-3 p-2">
+            <ng-container *ngFor="let adg of     adventuregenre">
+                <img src="https://www.themoviedb.org/t/p/original/{{adg.poster_path}}" class="rowimg largeposter"
+                    [routerLink]="['/movie',adg.id]">
+            </ng-container>
+        </div>
+    </div>
+</div>
+
